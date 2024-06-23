@@ -2,6 +2,7 @@
 
 1. **Auto jumping version.**
 2. **Jumping base on last race.**
+3. **Jumping with majority rule.**
 
 # Ref
 
