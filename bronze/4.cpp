@@ -57,7 +57,8 @@ void game_two() {
 }
 
 void game_three(string cur_gpu, int reg[], int tmp[]) {
-    if(reg[3] < 0) {
+    int risk = reg[3];
+    if(risk < 0) {
         return;
     }
 
@@ -65,15 +66,30 @@ void game_three(string cur_gpu, int reg[], int tmp[]) {
     // risk 2 -> step 2, 1
     // risk 1 -> step 3, 2, 1
     // risk 0 -> step 4, 3, 2, 1
+    if(risk >= 3) {
+        tmp[MOVE_MAP[cur_gpu[0]]] += FIRST_PRIORITY;
+    } else if(risk >= 2) {
+        tmp[MOVE_MAP[cur_gpu[0]]] += SECOND_PRIORITY;
+        tmp[MOVE_MAP[cur_gpu[1]]] += FIRST_PRIORITY;
+    } else if(risk >= 1) {
+        tmp[MOVE_MAP[cur_gpu[0]]] += THIRD_PRIORITY;
+        tmp[MOVE_MAP[cur_gpu[1]]] += SECOND_PRIORITY;
+        tmp[MOVE_MAP[cur_gpu[2]]] += FIRST_PRIORITY;
+    } else {
+        tmp[MOVE_MAP[cur_gpu[0]]] += FOURTH_PRIORITY;
+        tmp[MOVE_MAP[cur_gpu[1]]] += THIRD_PRIORITY;
+        tmp[MOVE_MAP[cur_gpu[2]]] += SECOND_PRIORITY;
+        tmp[MOVE_MAP[cur_gpu[3]]] += FIRST_PRIORITY;
+    }
 
     // just move by increment of risk
-    for(int i = 0; i < cur_gpu.size(); i++) {
-        for(int j = 0; j < MOVE_SIZE; j++) {
-            if(cur_gpu[i] == MOVE[j][0]) {
-                tmp[j] += FIRST_PRIORITY - i;
-            }
-        }
-    }
+    // for(int i = 0; i < cur_gpu.size(); i++) {
+    //     for(int j = 0; j < MOVE_SIZE; j++) {
+    //         if(cur_gpu[i] == MOVE[j][0]) {
+    //             tmp[j] += FIRST_PRIORITY - i;
+    //         }
+    //     }
+    // }
     cerr << cur_gpu << endl;
     for(int i = 0; i < MOVE_SIZE; i++) {
         cerr << tmp[i] << endl;
@@ -113,7 +129,7 @@ int main()
 
         int tmp[MOVE_SIZE] = {0};
 
-        // game_one(cur_gpu[0], reg[0], tmp);
+        game_one(cur_gpu[0], reg[0], tmp);
         // game_two(cur_gpu[1], reg[1], tmp);
         game_three(cur_gpu[2], reg[2], tmp);
         // game_four(cur_gpu[3], reg[3], tmp);
