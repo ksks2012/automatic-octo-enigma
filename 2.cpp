@@ -1,4 +1,6 @@
-// Jumping base on last race
+/*
+    Jumping base on last race
+*/ 
 
 #include <iostream>
 #include <string>
