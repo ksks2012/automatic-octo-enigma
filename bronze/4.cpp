@@ -19,7 +19,8 @@ using namespace std;
 
 string MOVE[MOVE_SIZE] = {"UP", "LEFT", "DOWN", "RIGHT"};
 
-void game_one(int cur_gpu, int reg[], int &tmp) {
+void game_one(string cur_gpu, int reg[], int tmp[]) {
+    // ignore when stun
     if(reg[3] > 0) {
         continue;
     }
