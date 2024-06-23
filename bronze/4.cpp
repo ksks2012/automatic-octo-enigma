@@ -14,7 +14,6 @@ using namespace std;
  * the standard input according to the problem statement.
  **/
 
-#define GPU_SIZE 30
 #define MOVE_SIZE 4
 #define REG_SIZE 7
 
@@ -24,11 +23,11 @@ void game_one(int cur_gpu, int reg[], int &tmp) {
     if(reg[3] > 0) {
         continue;
     }
-    if(reg[0] + 1 < GPU_SIZE && cur_gpu[reg[0] + 1] == '#') {
+    if(reg[0] + 1 < cur_gpu.size() && cur_gpu[reg[0] + 1] == '#') {
         tmp[0]++;
-    } else if(reg[0] + 2 < GPU_SIZE && cur_gpu[reg[0] + 2] == '#') {
+    } else if(reg[0] + 2 < cur_gpu.size() && cur_gpu[reg[0] + 2] == '#') {
         tmp[1]++;
-    } else if(reg[0] + 3 < GPU_SIZE && cur_gpu[reg[0] + 3] == '#') {
+    } else if(reg[0] + 3 < cur_gpu.size() && cur_gpu[reg[0] + 3] == '#') {
         tmp[2]++;
     } else {
         tmp[3]++;
