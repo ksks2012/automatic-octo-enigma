@@ -4,6 +4,7 @@
 2. **Jumping base on last race.**
 3. **Jumping with majority rule.**
 4. **Only move with Game 4**
+5. **Move with 2 -> 4 -> 1, 3**
 
 # Mini-game 1: Hurdle Race
 
@@ -35,6 +36,7 @@
 - Multi-objective?
 - Don't get bronze
 - Be silver
+- Movement: {"UP", "LEFT", "DOWN", "RIGHT"}
 
 ## Game 4
 
