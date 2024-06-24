@@ -1,5 +1,5 @@
 /*
-    Move with Game 1, 3
+    Only move with Game 4
 */
 
 #include <iostream>
